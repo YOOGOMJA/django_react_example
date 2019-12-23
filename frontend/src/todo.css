@@ -1,0 +1,82 @@
+html,body{
+    width:100%;
+    min-height : 100%;
+    background-color:#212121;
+    color : #fff;
+}
+
+.todo-container{
+    width : 800px;
+    margin:auto;
+}
+
+.todo-container .todo-input-wrapper .todo-input {
+    width : 100%;
+    display:flex;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #eee;
+}
+.todo-container .todo-input-wrapper .todo-input .todo-txt{
+    width: 100%;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+.todo-container .todo-input-wrapper .todo-input .btn{
+    background-color: #507ed3;
+    border : 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: #fff;
+    font-weight: 800;
+    font-size:20px;
+    width: 70px;
+    padding: 10px 0;
+}
+
+.todo-list ul{ list-style-type: circle;}
+
+.todo-list li{
+    width: 100%;
+    display:flex;
+    margin : 5px 0;
+}
+
+.todo-list li::before{
+    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: #fff; /* Change the color */
+    font-weight: bold; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -2em; /* Also needed for space (tweak if needed) */
+    margin-top: .5em;
+}
+
+.todo-list li .todo-item-desc{
+    width: 100%;
+    margin: 8px 0;
+}
+.todo-list li .todo-item-desc.closed{
+    text-decoration: line-through;
+    color:#666;
+}
+.todo-list li .todo-item-btn{
+    width:70px;
+    padding : 0;
+    background-color: #e85454;
+    color : #fff;
+    border : 0;
+}
+.todo-list li .todo-item-btn.chk{
+    width:70px;
+    padding : 0;
+    background-color: #1b5a1f;
+    color : #fff;
+    border : 0;
+    margin-right : 3px;
+}

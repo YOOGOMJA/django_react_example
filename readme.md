@@ -40,6 +40,7 @@ axios
 - url 설정 (/backend/backend/urls.py)
 - 모델 작성 (/backend/todo/models.py)
 - 시리얼라이저 작성 (/backend/todo/serializers.py)  
+- ViewSet 작성 (/backend/todo/view.py)  
   
 위와 같은 순서로 진행되었습니다. 실제 확인은 backend 프로젝트를 실행해보면됩니다.
 
