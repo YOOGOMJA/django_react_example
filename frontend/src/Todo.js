@@ -4,6 +4,9 @@ import './todo.css';
 import axios from 'axios';
 
 function Todo(props) {
+    // 화면을 구성하는데 필요한 변수들을 state를 사용해 생성
+    // list : 할일 목록 
+    // content : 할일 
     const [list , setList] = useState([]);
     const [content , setContent] = useState('');
 
@@ -15,6 +18,7 @@ function Todo(props) {
                 url : 'http://localhost:8000/api/todo/',
                 method : 'get'
             });
+            // 성공했을 때에만 목록을 갱신한다.
             if(result.status === 200){
                 setList(result.data);
             }
@@ -28,7 +32,8 @@ function Todo(props) {
                     context : content
                 }
             });
-            console.log(result);
+
+            // 성공했을때에는 인풋의 내용을 비워준다.
             if(result.status >= 200 && result.status < 300){
                 setContent('');
             }
@@ -43,10 +48,8 @@ function Todo(props) {
                 method : 'delete'
             });
             
-            if(result.status >= 200 && result.status < 300){
-                setContent('');
-            }
-            else{
+            // 실패한 경우 알림 
+            if(result.status >= 300 || result.status < 200){
                 window.alert('삭제가 실패했습니다.')
             }
         },
@@ -61,27 +64,32 @@ function Todo(props) {
                 }
             });
             
-            if(result.status >= 200 && result.status < 300){
-                setContent('');
-            }
-            else{
-                window.alert('삭제가 실패했습니다.')
+            // 실패한 경우 알림 
+            if(result.status >= 300 || result.status < 200){
+                window.alert('업데이트가 실패했습니다.')
             }
         }
     }
 
+    // 화면이 처음 로드되었을떄 실행되는 부분
     useEffect(()=>{
+        // 아래 부분부터 화면이 처음 로드되었을때 한번만 실행되는 부분
         db.get();
     },[]);
 
+    // 실제로 버튼을 눌렀을때 실행되는 함수들 
+
+    // 삭제 버튼 눌렀을떄 실행되는 함수 
     const del = async (item) => {
         await db.del(item.id);
         await db.get();
     }
+    // 확인 버튼 눌렀을 때 실행되는 함수 
     const chk = async (item)=>{
         await db.chk(item);
         await db.get();
     }
+    // 추가 버튼 눌렀을 때 실행되는 함수 
     const add = async ()=>{
         await db.add();
         await db.get();

@@ -15,15 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path , include
+
+# YOO : restframework를 사용하기 위함
 from rest_framework import routers
 import todo.views
 
-# rest_framework용 라우터 생성
+# YOO : rest_framework용 라우터 생성
 router = routers.DefaultRouter()
 router.register('todo' , todo.views.TodoViewset)
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # YOO : 라우터에 api 라는 주소 추가
     path('api/' , include(router.urls))
 ]

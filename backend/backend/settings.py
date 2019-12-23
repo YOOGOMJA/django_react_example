@@ -37,13 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # YOO : 추가해줘야 하는 장고 모듈들 
     'rest_framework',
     'corsheaders',
     'todo',
 ]
 
 MIDDLEWARE = [
+    # YOO : Cross Origin 에러 해결을 위한 추가 항목 
     'corsheaders.middleware.CorsMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -123,7 +126,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# CORS 세팅 
+# YOO : CORS 세팅 
 # CORS ALLOW 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True

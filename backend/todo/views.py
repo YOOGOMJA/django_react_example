@@ -6,7 +6,7 @@ from . import serializers
 
 # Create your views here.
 
-# 시리얼라이저와 restframework로 화면 출력 
+# YOO : 시리얼라이저와 restframework로 화면 출력 
 class TodoViewset(viewsets.ModelViewSet):
     queryset = models.Todo.objects.all()
     serializer_class = serializers.TodoSerializer
